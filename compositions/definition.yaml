@@ -1,0 +1,25 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositionResourceDefinition
+metada:
+  name: aws.s3.bucket
+spec:
+  group: s3.aws.upbound.io
+  names:
+    kind: XBucket
+  versions:
+    - name: v1beta1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                forProvider:
+                  type: object
+                  properties:
+                    region:
+                      type: string
+                      default: "us-east-1"
